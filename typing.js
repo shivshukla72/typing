@@ -36,7 +36,8 @@ function spellCheck(e)
    	 console.log(count);
    	 let min=timer[0];
    	 let sec=timer[1]/60;
-     fulltime=(min+sec); 
+     fulltime=(min+sec);
+     console.log(fulltime); 
      speed=Math.floor(count/fulltime);
      console.log(speed);
      accuracy=Math.floor(((totalchar-error)/totalchar)*100);
@@ -103,6 +104,6 @@ function reset()
 	theTimer.innerHTML="00:00:00";
 	textWrapper.style.borderColor="grey";
 }
-textarea.addEventListener("input",start,false);
+textarea.addEventListener("keydown",start,false);
 textarea.addEventListener("keyup",function(e){spellCheck(e)},false);
 resets.addEventListener("click",reset,false);
