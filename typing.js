@@ -2,10 +2,12 @@
 const textArea=document.querySelector("#textarea");
 var count=1;
 
-arr=["A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.","A paragraph consists of one or more sentences.",
-     "Though not required by the syntax of any languagae"];
+arr=["Being human makes us susceptible to the onset of feelings.The role of these emotions varies. Some of them are useful while others may be harmful. The use of social media for self-expression has reached a point that it makes us feel we can say anything. This begins when we see people expressing anything and everything that come to mind.",
+      "When we see everyone else voicing their likes and dislikes, their irritations and desires we tend to imitate what they do. And because many engage in this, we think that it is normal and healthy. However, when we get used to unbridled self-expression, we come to believe that all feelings are valid. We become convinced that in real life, we should also act on our emotions and our impulses.", 
+     "Using social media this way erodes our ability to regulate our actions and reactions. To illustrate, when something small irritates us we think that it's okay to feel this way. But isn't it better to foster one's patience and resilience instead of immediately complaining? Or when we develop an attraction to someone despite that person being in a relationship.",
+     "Your goal is to duplicate the provided text"];
 var random;
-random=Math.floor(Math.random()*3);
+random=Math.floor(Math.random()*4);
 document.getElementById('para').innerHTML=arr[random];
 var error=0;
 const originText=document.querySelector(".origintext p ").innerHTML;
@@ -41,7 +43,7 @@ function spellCheck(e)
      document.getElementById('textarea').style.display="none";
      document.getElementById('bottom').style.display="none";
      document.getElementById('wpm').style.display="block";
-     document.getElementById('wpm').innerHTML= "Your typing speed is "+speed+"wpm accuracy is "+accuracy+"%" ;
+     document.getElementById('wpm').innerHTML= "Your typing speed is "+speed+"wpm and accuracy is "+accuracy+"%" ;
    }
     else
     {      	
