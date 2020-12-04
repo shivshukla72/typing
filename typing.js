@@ -1,28 +1,28 @@
-
-const textArea=document.querySelector("#textarea");
-var count=1;
-
-arr=["Being human makes us susceptible to the onset of feelings.The role of these emotions varies. Some of them are useful while others may be harmful. The use of social media for self-expression has reached a point that it makes us feel we can say anything. This begins when we see people expressing anything and everything that come to mind.",
-      "When we see everyone else voicing their likes and dislikes, their irritations and desires we tend to imitate what they do. And because many engage in this, we think that it is normal and healthy. However, when we get used to unbridled self-expression, we come to believe that all feelings are valid. We become convinced that in real life, we should also act on our emotions and our impulses.", 
-     "Using social media this way erodes our ability to regulate our actions and reactions. To illustrate, when something small irritates us we think that it's okay to feel this way. But isn't it better to foster one's patience and resilience instead of immediately complaining? Or when we develop an attraction to someone despite that person being in a relationship.",
-     "Your goal is to duplicate the provided text"];
-var random;
-random=Math.floor(Math.random()*4);
-document.getElementById('para').innerHTML=arr[random];
-var error=0;
-const originText=document.querySelector(".origintext p ").innerHTML;
-var totalchar=originText.length;
-const textWrapper=document.querySelector(".textwrapper");
 var accuracy=0;
-const theTimer= document.querySelector(".timer");
-
-const resets=document.querySelector("#reset");
-
+var count=1;
 var timer=[0,0,0,0];
 var interval;
 var timerrunning=false;
 var fulltime;
 var speed;
+var random;
+var error=0;
+
+arr=["Being human makes us susceptible to the onset of feelings.The role of these emotions varies. Some of them are useful while others may be harmful. The use of social media for self-expression has reached a point that it makes us feel we can say anything. This begins when we see people expressing anything and everything that come to mind.",
+      "When we see everyone else voicing their likes and dislikes, their irritations and desires we tend to imitate what they do. And because many engage in this, we think that it is normal and healthy. However, when we get used to unbridled self-expression, we come to believe that all feelings are valid. We become convinced that in real life, we should also act on our emotions and our impulses.", 
+     "Using social media this way erodes our ability to regulate our actions and reactions. To illustrate, when something small irritates us we think that it's okay to feel this way. But isn't it better to foster one's patience and resilience instead of immediately complaining? Or when we develop an attraction to someone despite that person being in a relationship.",
+     "Your goal is to duplicate the provided text"];
+
+random=Math.floor(Math.random()*4);
+document.getElementById('para').innerHTML=arr[random];
+const originText=document.querySelector(".origintext p ").innerHTML;
+console.log(originText);
+const textArea=document.querySelector("#textarea");
+var totalchar=originText.length;
+
+const textWrapper=document.querySelector(".textwrapper");
+const theTimer= document.querySelector(".timer");
+const resets=document.querySelector("#reset");
 function spellCheck(e)
 {
   textEntered=textArea.value;
@@ -39,14 +39,14 @@ function spellCheck(e)
      fulltime=(min+sec); 
      speed=Math.floor(count/fulltime);
      console.log(speed);
-      accuracy=Math.floor(((totalchar-error)/totalchar)*100);
+     accuracy=Math.floor(((totalchar-error)/totalchar)*100);
      document.getElementById('textarea').style.display="none";
      document.getElementById('bottom').style.display="none";
      document.getElementById('wpm').style.display="block";
      document.getElementById('wpm').innerHTML= "Your typing speed is "+speed+"wpm and accuracy is "+accuracy+"%" ;
    }
     else
-    {      	
+    {    	
     	if(originTextMatch==textEntered)
     	{ 
           textWrapper.style.borderColor="blue";
@@ -103,7 +103,6 @@ function reset()
 	theTimer.innerHTML="00:00:00";
 	textWrapper.style.borderColor="grey";
 }
-
-textarea.addEventListener("keypress",start,false);
+textarea.addEventListener("input",start,false);
 textarea.addEventListener("keyup",function(e){spellCheck(e)},false);
 resets.addEventListener("click",reset,false);
