@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>typing</title>
+<title>typing</title>
+<link rel="stylesheet" type="text/css" href="typing.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
- <p>dioda</p>
+       <h1>Test Your typing Speed</h1>
+<article class="intro">
+  <p>This is a typing test. Your goal is to duplicate the provided text, EXACTLY, in the field below. The timer starts when you start typing, and only stops when you match this text exactly. Good Luck!</p>
+</article>
+
+<section class="testArea">
+      <div class="origintext">
+            <p id="para" ></p>
+      </div>
+
+      <div>
+        <textarea class="textwrapper" id="textarea" rows="7"></textarea>
+     </div>
+
+</section>
+
+     <div class="bottom">
+         <span id="clock" class="timer">00:00:00</span>
+              <span style="float: right;">
+                   <button class="button" type="button" id="reset">Restart</button>
+             </span>
+    </div>
 </body>
+    <script src="typing.js"></script>
 </html>
