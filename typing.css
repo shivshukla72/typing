@@ -43,6 +43,15 @@ h1
  border-radius: 10px;
  width:40%;
 }
+#wpm
+{
+    padding:10px;
+	margin-left: 28%;
+	margin-right: 28%;
+	font-weight: bold;
+	font-size: x-large;
+	text-align: center;
+}
 .button
 {
  text-align: center;
@@ -59,7 +68,7 @@ h1
 {
     background-color: #E95D0F;
 }
-.bottom
+#bottom
 {
     margin-left: 28%;
     margin-right: 32%;
@@ -93,7 +102,7 @@ h1
 	 margin-right: 10%;
 	  width: 65%;
 	}
-	.bottom
+	#bottom
 	{
 	    margin-left: 13%;
 	    margin-right: 50%;

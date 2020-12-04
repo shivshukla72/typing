@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body >
        <h1>Test Your typing Speed</h1>
 <article class="intro">
   <p>This is a typing test. Your goal is to duplicate the provided text, EXACTLY, in the field below. The timer starts when you start typing, and only stops when you match this text exactly. Good Luck!</p>
@@ -16,19 +16,20 @@
       <div class="origintext">
             <p id="para" ></p>
       </div>
-
       <div>
-        <textarea class="textwrapper" id="textarea" rows="7"></textarea>
+        <textarea onpaste="return false;" class="textwrapper" id="textarea" rows="7"></textarea>
      </div>
+     <div id="wpm" style="display: none;"></div>
 
 </section>
 
-     <div class="bottom">
+     <div id="bottom">
          <span id="clock" class="timer">00:00:00</span>
               <span style="float: right;">
                    <button class="button" type="button" id="reset">Restart</button>
              </span>
     </div>
+
 </body>
     <script src="typing.js"></script>
 </html>

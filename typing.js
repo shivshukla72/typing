@@ -1,19 +1,17 @@
 
 const textArea=document.querySelector("#textarea");
-
-
+var count=1;
 
 arr=["A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.","A paragraph consists of one or more sentences.",
-     " Though not required by the syntax of any languagae"];
+     "Though not required by the syntax of any languagae"];
 var random;
 random=Math.floor(Math.random()*3);
 document.getElementById('para').innerHTML=arr[random];
-
+var error=0;
 const originText=document.querySelector(".origintext p ").innerHTML;
-
-
+var totalchar=originText.length;
 const textWrapper=document.querySelector(".textwrapper");
-
+var accuracy=0;
 const theTimer= document.querySelector(".timer");
 
 const resets=document.querySelector("#reset");
@@ -21,38 +19,48 @@ const resets=document.querySelector("#reset");
 var timer=[0,0,0,0];
 var interval;
 var timerrunning=false;
-
+var fulltime;
+var speed;
 function spellCheck(e)
 {
-	textEntered=textArea.value;
-	console.log(textEntered);
-  
+  textEntered=textArea.value;
+  console.log(textEntered);
    let originTextMatch=originText.substring(0,textEntered.length);
    console.log(originTextMatch);
    if (textEntered==originText )
    {  
    	 clearInterval(interval);
    	 textWrapper.style.borderColor="green";
+   	 console.log(count);
+   	 let min=timer[0];
+   	 let sec=timer[1]/60;
+     fulltime=(min+sec); 
+     speed=Math.floor(count/fulltime);
+     console.log(speed);
+      accuracy=Math.floor(((totalchar-error)/totalchar)*100);
+     document.getElementById('textarea').style.display="none";
+     document.getElementById('bottom').style.display="none";
+     document.getElementById('wpm').style.display="block";
+     document.getElementById('wpm').innerHTML= "Your typing speed is "+speed+"wpm accuracy is "+accuracy+"%" ;
    }
     else
-    {  
-    	debugger;
+    {      	
     	if(originTextMatch==textEntered)
-    	{
+    	{ 
           textWrapper.style.borderColor="blue";
-           if(e.key=="k")
-           {
-           	 let count=0;
+           if(e.key==" ")
+           { debugger;
+           	console.log(e.key);
            	 count=count+1;
-           	 console.log(count);
+           	 console.log("word",count);
            }
     	}
     	else
     	{
-    		textWrapper.style.borderColor="orange";
+    	  textWrapper.style.borderColor="orange";
+    	  error=error+1;
     	}
     }
-
 }
 function leadingZero(time)
 {
@@ -73,11 +81,8 @@ function runTimer()
 	timer[2]=Math.floor(timer[3]-(timer[1]*100)-(timer[0]*6000));
 }
 
-
 function start()
 {    
-
-
 	let textEnteredLength=textArea.value.length;
 	console.log(textEnteredLength);
 
@@ -85,8 +90,6 @@ function start()
     {   timerrunning=true;
     	interval=setInterval(runTimer,10);
     }
-
-
 }
 function reset()
 {
